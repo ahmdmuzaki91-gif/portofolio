@@ -477,3 +477,44 @@ body.light-theme .toggle-circle {
         flex-direction: column;
     }
 }
+/* --- Responsif untuk HP (Maksimal Lebar 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Navigasi: Sembunyikan menu teks atau buat jadi lebih kecil */
+    .navbar {
+        padding: 1rem 5%;
+    }
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* 2. Teks Raksasa: Perkecil agar tidak memenuhi layar */
+    .giant-text {
+        font-size: 20vw; /* Ukuran menyesuaikan layar */
+    }
+
+    /* 3. Footer/Social Media: Susun ulang agar tidak tumpang tindih */
+    .bottom-info {
+        flex-direction: column; /* Mengubah jadi susunan vertikal */
+        padding: 1rem;
+        gap: 20px;
+        text-align: center;
+        position: relative; /* Menghapus absolute agar footer ada di bawah konten */
+        margin-top: 20px;
+    }
+
+    .info-left, .info-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .icons {
+        justify-content: center; /* Ikon media sosial ke tengah */
+    }
+    
+    /* 4. Hero Image: Sesuaikan ukuran foto */
+    .hero-bg-img {
+        height: 50vh; /* Perkecil tinggi foto di HP agar tidak menutupi teks */
+    }
+}
