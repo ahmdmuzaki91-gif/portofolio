@@ -1,0 +1,479 @@
+/* --- Variabel Warna & Font --- */
+:root {
+    --bg-color: #050505; /* Hitam pekat */
+    --text-main: #ffffff; /* Putih */
+    --accent-color: #ffaa00; /* Oranye Kekuningan */
+    --font-ui: 'Poppins', sans-serif;
+    --font-giant: 'Bebas Neue', sans-serif;
+    --font-cursive: 'Dancing Script', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Membuat efek scroll yang halus */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    overflow-x: hidden; /* Menghapus 'overflow: hidden' agar bisa di-scroll ke bawah */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Memastikan halaman utama tetap 100% tinggi layar */
+.home-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Navigasi Atas --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    z-index: 10;
+}
+
+.logo {
+    color: var(--accent-color);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Tombol Toggle Mirip di Gambar */
+.toggle-switch {
+    width: 45px;
+    height: 22px;
+    background-color: var(--accent-color);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-circle {
+    width: 16px;
+    height: 16px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    right: 4px; /* Default di kanan */
+    transition: 0.3s;
+}
+
+.toggle-switch.active .toggle-circle {
+    right: 25px; /* Geser ke kiri jika diklik */
+}
+
+/* --- Bagian Tengah (Hero) --- */
+.hero-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero-bg-img {
+    height: 90vh;
+    object-fit: contain;
+    opacity: 0.5; /* Digelapkan agar teks putih terbaca jelas */
+    /* Membuat efek memudar (fade) di bagian bawah foto */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.hero-text-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Teks Sambung "Creative" */
+.cursive-text {
+    font-family: var(--font-cursive);
+    color: var(--accent-color);
+    font-size: 6rem;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Memberi kedalaman */
+}
+
+/* Teks Raksasa "PORTFOLIO" */
+.giant-text {
+    font-family: var(--font-giant);
+    font-size: 18vw; /* Ukuran dinamis mengikuti lebar layar */
+    line-height: 0.8;
+    color: var(--text-main);
+    letter-spacing: 5px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* --- Bagian Bawah (Footer Info) --- */
+.bottom-info {
+    position: absolute; /* Memastikan dia menempel di bawah layar */
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem; /* Sesuaikan angka ini agar tidak mentok */
+    z-index: 10;
+}
+
+/* Memastikan ikon rapi */
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.info-right {
+    text-align: right;
+}
+
+/* Pastikan ukuran font tidak terlalu besar agar tidak menabrak */
+.bottom-info p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.info-left .icons {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.info-left .icon {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.info-right {
+    text-align: right;
+}
+
+.social-link {
+    color: var(--text-main);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 8px;
+    border-bottom: 1px solid var(--text-main);
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+/* =========================================
+   TEMA TERANG (LIGHT MODE)
+   ========================================= */
+body.light-theme {
+    --bg-color: #f4f4f6; /* Latar belakang menjadi putih keabu-abuan terang */
+    --text-main: #111111; /* Teks menjadi hitam gelap */
+    /* Catatan: --accent-color (oranye) tetap dipertahankan */
+}
+
+/* Penyesuaian bayangan dan gambar untuk mode terang */
+body.light-theme .giant-text {
+    text-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Bayangan teks dilembutkan */
+}
+
+body.light-theme .cursive-text {
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9); /* Bayangan putih agar tulisan oranye tetap menonjol */
+}
+
+body.light-theme .hero-bg-img {
+    opacity: 0.9; /* Foto dibuat sedikit lebih jelas di mode terang */
+    filter: grayscale(20%) contrast(110%); /* Sedikit penyesuaian warna foto */
+}
+
+/* Penyesuaian tombol toggle di mode terang */
+body.light-theme .toggle-circle {
+    background-color: #ffffff;
+}
+/* =========================================
+   BAGIAN PROFIL / ABOUT SAYA
+   ========================================= */
+.about-section {
+    min-height: 100vh; /* Tinggi satu layar penuh */
+    padding: 100px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    /* Memberikan efek bayangan menyala dengan warna aksen */
+    box-shadow: 0 10px 40px rgba(255, 170, 0, 0.15); 
+    filter: grayscale(20%);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-title {
+    font-family: var(--font-giant);
+    font-size: 5rem;
+    color: var(--accent-color); /* Warna oranye/kuning */
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    opacity: 0.8; /* Sedikit diredupkan agar elegan */
+}
+
+/* Penyesuaian saat dipindah ke layar HP */
+@media screen and (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-title {
+        font-size: 3.5rem;
+    }
+}
+/* =========================================
+   BAGIAN PROYEK (PROJECTS)
+   ========================================= */
+.projects-section {
+    min-height: 100vh;
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg-color);
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-heading {
+    font-family: var(--font-giant);
+    font-size: 5rem;
+    color: var(--text-main);
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.section-heading span {
+    color: var(--accent-color); /* Kata 'TERBARU' akan berwarna oranye */
+}
+
+/* Tata letak grid untuk layar laptop/komputer */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+/* Desain Kartu Proyek */
+.project-card {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    cursor: pointer;
+}
+
+/* Wadah Gambar Preview */
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Efek Overlay Oranye saat kursor diarahkan (Hover) */
+.hover-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(255, 170, 0, 0.85); /* Warna oranye semi-transparan */
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Animasi saat kartu proyek di-hover */
+.project-card:hover .project-image img {
+    transform: scale(1.1); /* Gambar sedikit membesar */
+}
+
+.project-card:hover .hover-overlay {
+    opacity: 1; /* Overlay oranye muncul */
+}
+
+/* Teks Info Proyek */
+.project-info h3 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-info h3 {
+    color: var(--accent-color); /* Judul berubah oranye saat di-hover */
+}
+
+.project-info p {
+    color: var(--text-main);
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* Penyesuaian untuk HP */
+@media screen and (max-width: 768px) {
+    .section-heading {
+        font-size: 3.5rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr; /* Menjadi satu kolom berderet ke bawah */
+    }
+}
+/* =========================================
+   BAGIAN KONTAK (CONTACT)
+   ========================================= */
+.contact-section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 700px;
+}
+
+.contact-description {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    opacity: 0.7;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-contact {
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    border: 2px solid var(--accent-color);
+}
+
+.whatsapp {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+.email {
+    background-color: transparent;
+    color: var(--text-main);
+}
+
+.btn-contact:hover {
+    transform: scale(1.05);
+    background-color: var(--text-main);
+    border-color: var(--text-main);
+    color: #000;
+}
+
+/* Responsif untuk HP */
+@media screen and (max-width: 600px) {
+    .contact-buttons {
+        flex-direction: column;
+    }
+}
