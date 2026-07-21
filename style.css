@@ -518,3 +518,142 @@ body.light-theme .toggle-circle {
         height: 50vh; /* Perkecil tinggi foto di HP agar tidak menutupi teks */
     }
 }
+/* =========================================
+   GAYA POP-UP (MODAL SKILL)
+   ========================================= */
+.skill-triggers {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.skill-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: 2px solid var(--accent-color);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.skill-btn:hover {
+    background-color: var(--accent-color);
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* Latar Belakang Gelap di Belakang Popup */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Kelas aktif saat popup dimunculkan lewat JavaScript */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Kotak Konten Popup */
+.modal-content {
+    background-color: #15181e;
+    border: 1px solid rgba(255, 170, 0, 0.3);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: left;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content h3 {
+    font-family: var(--font-giant);
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.modal-content p {
+    color: var(--text-main);
+    opacity: 0.8;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Tombol Tutup (X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+}
+/* =========================================
+   ANIMASI HALAMAN & SCROLL
+   ========================================= */
+
+/* 1. Animasi Masuk Saat Halaman Pertama Kali Dibuka (Page Load) */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Menerapkan animasi load ke elemen utama di bagian atas */
+.top-nav {
+    animation: slideUpFade 1s ease-out forwards;
+}
+
+.hero-text {
+    animation: slideUpFade 1.2s ease-out forwards;
+}
+
+.hero-image {
+    animation: slideUpFade 1.4s ease-out forwards;
+}
+
+/* 2. Animasi Saat Scroll (Fade-In On Scroll) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}

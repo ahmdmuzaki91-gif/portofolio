@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Nama Anda</title>
+    <title>Portofolio - Ahmad Muzaki</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts untuk Tipografi yang mirip dengan gambar -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <!-- Wadah Halaman Utama (Layar Penuh) -->
     <div class="home-wrapper" id="home">
         <!-- Navigasi Atas -->
-        <nav class="navbar">
+        <nav class="navbar fade-in">
             <div class="logo">AHMAD MUZAKI</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -27,64 +27,73 @@
 
         <!-- Konten Tengah Layar Penuh -->
         <main class="hero-section">
-            <div class="hero-image-container">
+            <div class="hero-image-container fade-in">
                 <img src="profile.png" alt="Foto Profil" class="hero-bg-img">
             </div>
-            <div class="hero-text-container">
+            <div class="hero-text-container fade-in">
                 <span class="cursive-text">Website</span>
                 <h1 class="giant-text">PORTOFOLIO</h1>
             </div>
         </main>
 
         <!-- Informasi Bawah (Kiri & Kanan) -->
-         <footer class="bottom-info">
-        <div class="icons">
-            <p>my social media</p>
-            <!-- Link ke Instagram -->
-            <a href="https://instagram.com/zack061107" target="_blank" class="icon" title="Instagram">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 20px; vertical-align: middle;">
-            </a>
-            
-            <!-- Link ke TikTok -->
-            <a href="https://www.tiktok.com/@zack11067?is_from_webapp=1&sender_device=pc" target="_blank" class="icon" title="TikTok">
-                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 20px; vertical-align: middle;">
-            </a>
-        </div>
+        <footer class="bottom-info fade-in">
+            <div class="icons">
+                <p>my social media</p>
+                <!-- Link ke Instagram -->
+                <a href="https://instagram.com/zack061107" target="_blank" class="icon" title="Instagram">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 20px; vertical-align: middle;">
+                </a>
+                
+                <!-- Link ke TikTok -->
+                <a href="https://www.tiktok.com/@zack11067?is_from_webapp=1&sender_device=pc" target="_blank" class="icon" title="TikTok">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 20px; vertical-align: middle;">
+                </a>
+            </div>
             <div class="info-right">
                 <p>Presented By: Ahmad Muzaki</p>
-                <a href="https://www.linkedin.com/in/ahmad-muzaki-770abb315/" class="social-link">Hey! I'm on Linkedin</a>
+                <a href="https://www.linkedin.com/in/ahmad-muzaki-770abb315/" target="_blank" class="social-link">Hey! I'm on Linkedin</a>
             </div>
         </footer>
     </div>
 
     <!-- Halaman Profil Baru -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section fade-in">
         <div class="about-container">
             <div class="about-image">
-                <!-- Anda bisa pakai foto yang sama atau foto lain -->
                 <img src="profile.png" alt="Profil Saya">
             </div>
             <div class="about-text">
                 <h2 class="about-title">TENTANG SAYA</h2>
-                <p>Halo! Saya adalah seorang mahasiswa semester 2 jurusan Teknik Informatika.Saya sedang belajar frame work php laravel dan saya juga sudah mengerjakan project laravel.</p>
+                <p>Halo! Saya adalah seorang mahasiswa semester 2 jurusan Teknik Informatika. Saya sedang belajar framework PHP Laravel dan saya juga sudah mengerjakan project Laravel.</p>
                 <p>Mari bekerja sama untuk mewujudkan ide-ide luar biasa!</p>
+                
+                <div class="skill-triggers">
+                    <button class="skill-btn" data-target="modal-web">Web Development</button>
+                    <button class="skill-btn" data-target="modal-laravel">Laravel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Struktur Pop-up (Modal) - Ditempatkan di dalam section agar rapi -->
+        <div id="skillModal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3 id="modalTitle">Judul Skill</h3>
+                <p id="modalDesc">Deskripsi detail mengenai skill akan muncul di sini.</p>
             </div>
         </div>
     </section>
+
     <!-- Halaman Proyek -->
     <section id="projects" class="projects-section">
         <div class="projects-container">
-            <!-- Judul Section dengan font besar -->
-            <h2 class="section-heading">KARYA <span>TERBARU</span></h2>
+            <h2 class="section-heading fade-in">KARYA <span>TERBARU</span></h2>
             
-            <!-- Grid untuk kartu proyek -->
             <div class="project-grid">
-                
                 <!-- Kartu Proyek 1 -->
-                <!-- Ganti href dengan link website/proyek Anda -->
-                <a href="https://kelompok-10.ansen25.daffaarfiyandi.id" target="_blank" class="project-card">
+                <a href="https://kelompok-10.ansen25.daffaarfiyandi.id" target="_blank" class="project-card fade-in">
                     <div class="project-image">
-                        <!-- Ganti src dengan file gambar preview proyek Anda -->
                         <img src="project1.jpg" alt="Preview Proyek 1">
                         <div class="hover-overlay">Lihat Proyek ↗</div>
                     </div>
@@ -93,12 +102,12 @@
                         <p>Web Development / Laravel</p>
                     </div>
                 </a>
-
             </div>
         </div>
     </section>
+
     <!-- Bagian Kontak -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section fade-in">
         <div class="contact-container">
             <h2 class="section-heading">MARI <span>BERKOLABORASI</span></h2>
             <p class="contact-description">
@@ -118,6 +127,7 @@
             </div>
         </div>
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>
